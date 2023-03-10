@@ -1,0 +1,71 @@
+Build a loan calculator that takes three inputs:
+1. loan amount
+2. APR
+3. loan duration
+
+Calculate monthly payment based on this formula:
+
+m = p * (j / (1 - (1+j)**(-n)))
+
+where m = monthly payment
+p = loan amount
+j = monthly interest rate
+n = loan duration in months
+
+INPUT
+loan amount
+APR in percent
+loan duration in years
+
+Output monthly payment (and also input variables)
+
+Calculate monthly interest rate from APR
+Calculate loan duration in months based on loan duration in years
+Verify all inputs
+
+100000, 5, 5 => 1887.12
+100000, 5, 30 => 3235.34
+250000, 2.5, 30.5 => 1,342.05
+
+Tests
+1. loan amount
+   - must be a number (no characters other than '.' allowed)
+   - must be positive
+   - must be non-zero
+2. APR
+   - APR must be a number (no characters other than '.' allowed)
+   - must be a positive number between 0 and 100
+3. loan duration
+   - must be an integer or float
+
+Loop
+
+1. Welcome
+2. Get loan amount
+   - ask user the loan amount
+   - get user input
+   - print error message if input is invalid and try again
+   - return loan amount
+3. Get APR
+   - ask user APR amount
+   - get user input
+   - print error message if input is invalid and try again
+   - return APR
+4. Get loan duration in years
+   - ask user loan duration in years
+   - get user input
+   - print error message if input is invalid and try again
+   - return loan duration in years
+5. Calculate monthly interest rate
+   - apr / 12
+6. Calculate loan duration in months
+   - loan duration in years * 12
+7. Calculate monthly payment
+   - input monthly interest rate, loan amount, duration in months
+   - calculate monthly payment based on formula
+   - return monthly payment
+8. Print results
+9. Ask user if they would like to make another calculation
+   - get user input
+   - break unless they want to try again
+10. Goodbye message
