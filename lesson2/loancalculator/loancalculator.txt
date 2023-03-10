@@ -21,11 +21,11 @@ Output monthly payment (and also input variables)
 
 Calculate monthly interest rate from APR
 Calculate loan duration in months based on loan duration in years
-Verify all inputs
+Verify all inputs ()
 
 100000, 5, 5 => 1887.12
-100000, 5, 30 => 3235.34
-250000, 2.5, 30.5 => 1,342.05
+100000, 30, 5 => 3235.34
+250000, 30.5, 2.5 => 1,342.05
 
 Tests
 1. loan amount
