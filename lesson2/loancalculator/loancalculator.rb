@@ -37,11 +37,9 @@ def get_loan_amount
 
     amount = gets.chomp
 
-    if valid_loan?(amount) == false
-      prompt(MESSAGES["invalid_amount"])
-    else
-      break
-    end
+    break if valid_loan?(amount)
+
+    prompt(MESSAGES["invalid_amount"])
   end
   format('%.2f', amount.to_f)
 end
@@ -54,11 +52,9 @@ def get_apr
 
     rate = gets.chomp
 
-    if valid_number?(rate) == false
-      prompt(MESSAGES["invalid_apr"])
-    else
-      break
-    end
+    break if valid_number?(rate)
+
+    prompt(MESSAGES["invalid_apr"])
   end
   rate.to_f
 end
@@ -71,11 +67,9 @@ def get_loan_duration
 
     years = gets.chomp
 
-    if valid_number?(years) == false
-      prompt(MESSAGES["invalid_loan_duration"])
-    else
-      break
-    end
+    break if valid_number?(years)
+
+    prompt(MESSAGES["invalid_loan_duration"])
   end
   years
 end
@@ -86,8 +80,11 @@ def calculate_monthly_payment(loan_amount, apr, duration_years)
   monthly_rate = apr_month / PERCENT_DIVISOR
   duration_months = duration_years.to_f * MONTHS_IN_YEAR
 
-  num = amount * (monthly_rate / (1 - (1 + monthly_rate)**(-duration_months)))
-
+  if monthly_rate.zero?
+    num = amount / duration_months
+  else
+    num = amount * (monthly_rate / (1 - (1 + monthly_rate)**(-duration_months)))
+  end
   format('%.2f', num)
 end
 
